@@ -1,37 +1,65 @@
 #include<cstdio>
-#include<string>
+#include<cstring>
 #include<algorithm>
+#include<iostream>
 using namespace std;
 #define ELE 55
-#define KINDOM 55
 
 int sumInRow(char elemetn[], int col);
-int sumBetweenCol(char last[], char ele[], int col);
-//what's the meaning of "Input ends with EOF???? the end of file or a EOF string????"
-int main(){
-	char lastEle[ELE];
-	char element[ELE];
-	memset(lastEle, '\0', ELE);
-	memset(element, '\0', ELE);
-	int col=0; 
-	int sum = 0;
-	while(scanf("%s", element)!=EOF){
-		printf("element= %s\n", element);
-		if(!col){
-			while(element[col]!='\0'){col++;}
-		}
-		if(lastEle[0]!='\0'){
-			sum+=sumBetweenCol(lastEle, element, col);
-		}
-		sum+=sumInRow(element, col);
-		strcpy(lastEle, element);
-	}
-	printf("%d\n", sum);
-	sum = 0;
-	col = 0;
-	memset(lastEle, '\0', ELE);
-	memset(element, '\0', ELE);
+int sumBetweenRow(char last[], char ele[], int col, int count);
 
+int main(){
+	char islands[ELE][ELE];
+	int sum = 0;
+	char c= '\0';
+	int bre = 0;
+	int row = 0;
+	int col=1;
+	int len=0;
+
+	//the first char of a test case
+	while(scanf("%c", &c)!=EOF && bre != 1){
+		islands[0][0]  = c;
+		bre = 0;
+		col = 0;
+		row=0;
+		sum=0;
+
+		while(islands[row][0]!='\n'){ //if not, continues to the next test case
+			//input the line
+			while(islands[row][col]!='\n'){
+				col++;
+				if(scanf("%c", &islands[row][col])==EOF){
+					bre = 1;
+					break;
+				}
+			}
+			row++;
+			len = col;
+			col=0;
+			if(scanf("%c", &islands[row][0])==EOF){
+				bre = 1;
+				break;
+			}	
+		}
+		for(int i=0; i<row-1; i++){
+			sum+=sumInRow(islands[i], len);
+			sum+=sumBetweenRow(islands[i], islands[i+1], len, i+2);
+		}
+		sum+=sumInRow(islands[row-1], len);
+
+		//print the islands for test
+		// for(int i=0; i<row; i++){
+		// 	for(int j=0; j<len; j++){
+		// 		printf("%c ", islands[i][j]);
+		// 	}
+		// 	printf("\n");
+		// }
+		// printf("\n");
+		printf("%d\n", sum);
+	}
+	
+	return 0;
 }
 
 int sumInRow(char ele[], int col){
@@ -50,28 +78,39 @@ int sumInRow(char ele[], int col){
 			counting = false;
 		}
 	}
-	// printf("sum = %d\nbegin=%d\n", sum, begin);
+	// printf("sumInRow = %d\n", sum+begin);
 
 	return sum+begin;
 }
 
-int sumBetweenCol(char last[], char ele[], int col){
+int sumBetweenRow(char last[], char ele[], int col, int count){
+	// printf("last=%s", last);
+	// printf("ele=%s", ele);
+	// printf("%d\n", col);
+	// printf("count=%d\n", count);
 	int sum=0;
-	for(int i=0; i<col; i++){
-		if(ele[i]=='#'){
-			if(last[i]!='#')
+	if(count%2==0){
+		for(int i=0; i<col; i++){
+			if(last[i]!=ele[i])
 				sum++;
-			if(i!=col-1 && last[i+1]!='#'){
-				sum++;
-			}
 		}
-		if(last[i]=='#'){
-			if(ele[i]!='#')
+		// printf("part1 = %d\n", sum);
+		for(int i=0; i<col-1;i++){
+			if(ele[i]!=last[i+1])
 				sum++;
-			if(i!=0 && ele[i-1]!='#'){
-				sum++;
-			}
 		}
+	}else{
+		for(int i=0; i<col; i++){
+			if(ele[i]!=last[i])
+				sum++;
+		}
+		// printf("part2 = %d\n", sum);
+		for(int i=0; i<col-1;i++){
+			if(last[i]!=ele[i+1])
+				sum++;
+		}	
 	}
+	
+	// printf("sumBetweenCol=%d\n", sum);
 	return sum;
 }

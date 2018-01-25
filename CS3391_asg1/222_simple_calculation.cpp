@@ -1,15 +1,22 @@
 #include <cstdio>
-#include <string>
+#include <cstring>
+#include<string>
 #include <iostream>
-#include<algorithm>
+#include <algorithm>
+#include<cstdlib>
 using namespace std;
 #define SIZE 100
 
 int main(){
 	string inputLine;
-	double inputNum;
-	double sum=0; 
+	long double inputNum;
+	long double sum=0; 
+	int count = 0;
 	while(getline(cin, inputLine)!=NULL){
+		if(count!=0){
+			printf("\n");
+		}
+		count++;
 		bool begin = false;
 		char charNum[SIZE];
 		memset(charNum, '\0', SIZE);
@@ -23,7 +30,8 @@ int main(){
 					begin = false;
 					charNum[loc++] = '\0';
 					// printf("charNum = %s\n", charNum);
-					inputNum = atof(charNum);
+					inputNum = strtold(charNum, NULL);
+					// printf("%.10Lf\n", inputNum);
 					sum+= inputNum;
 					// printf("sum = %.4f\n", sum);
 					memset(charNum, '\0', SIZE);
@@ -36,8 +44,9 @@ int main(){
 					charNum[loc++] = inputLine[i];
 					begin = false;
 					charNum[loc++] = '\0';
+					inputNum = strtold(charNum, NULL);
+					// printf("%.10Lf\n", inputNum);
 					loc = 0;
-					inputNum = atof(charNum);
 					sum+= inputNum;
 					// printf("%.4f", sum);
 					memset(charNum, '\0',SIZE);
@@ -46,10 +55,9 @@ int main(){
 			
 
 		}
-		printf("%.4f\n",sum);
+		printf("%.4Lf\n",sum);
 		sum = 0;
 	}
 
 	return 0;
-	
 }
