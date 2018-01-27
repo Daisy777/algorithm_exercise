@@ -1,7 +1,6 @@
 #include<cstdio>
 #include<algorithm>
-#include<string>
-#include<unordered_map>
+#include<cstring>
 #define LEN 55
 using namespace std;
 
@@ -58,4 +57,5 @@ int main(){
 
 //test   use the first t in the first loop
 //testtt use the second t in the second loop  -> not the last one!!!
+//pay attention to the initial value of max_char in each loop
 
