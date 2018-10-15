@@ -1,0 +1,8 @@
+# python
+*.pyc
+
+# c++
+a.out
+
+# java
+*.class
