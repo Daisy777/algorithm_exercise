@@ -62,16 +62,9 @@ class MyCalendar:
 # obj = MyCalendar()
 # param_1 = obj.book(start,end)
 
+# test
 if __name__== '__main__':
     obj = MyCalendar()
     print(obj.book(10, 20)) # True
     print(obj.book(15, 25)) # False
     print(obj.book(20, 30)) # True
-
-
-
-
-[[],[47,50],[33,41],[39,45],[33,42],[25,32],[26,35],[19,25],[3,8],[8,13],[18,27]]
-
-[null,true,true,false,false,true,false,false,true,true,false]
-[null,true,true,false,false,true,false,true,true,true,false]
