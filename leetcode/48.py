@@ -1,3 +1,11 @@
+'''
+Author:    ZHAO Zinan
+Created: 20-Nov-2018
+
+48. Rotate Image
+https://leetcode.com/problems/rotate-image/description/
+'''
+
 class Solution:
     def rotate(self, matrix):
         """
