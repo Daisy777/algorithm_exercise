@@ -4,6 +4,8 @@ Created: 26-Nov-2018
 
 380. Insert Delete GetRandom O(1)
 https://leetcode.com/problems/insert-delete-getrandom-o1/description/
+
+set insert, remove and random selection
 """
 class RandomizedSet:
 

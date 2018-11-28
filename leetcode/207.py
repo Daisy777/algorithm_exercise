@@ -67,4 +67,5 @@ if __name__ == '__main__':
     print(Solution().canFinish(2, [[0, 1], [1, 0]])) # false
     print(Solution().canFinish(2, [[0, 1]])) # true
     print(Solution().canFinish(2, [[1, 0]])) # true
-        
+
+      
