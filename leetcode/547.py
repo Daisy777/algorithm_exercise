@@ -22,17 +22,18 @@ class disjointSet:
             return -1 # invalid parameter
         if self.leaders[index] < 0:
             return index
-        print(self.leaders)
+
         return self.root(self.leaders[index]) # O(logn)
 
     def combine(self, index1, index2):
-        if index1 == index2:
-            return True
         # add the set with smaller depth as the child of the other ones
-        root1 = self.root(index1)
+        root1 = self.root(index1) 
         root2 = self.root(index2)
         if root1 == -1 or root2 == -1:
             return False # invalid
+
+        if root1 == root2:
+            return True # already in the same set
         
         if -self.leaders[root1] > -self.leaders[root2]:
             parent = root1
@@ -83,6 +84,3 @@ if __name__ == '__main__':
             [1,1,1,1,1],
             [1,1,1,1,1]]
     print(Solution().findCircleNum(test3)) # 1
-
-
-        
