@@ -13,17 +13,16 @@ class Solution:
         :type S: int
         :rtype: int
         """
-        return self._findTargetSumWays(nums, len(nums), S)
-    
-    def _findTargetSumWays(self, nums, length, S):
-        if length == 1:
-            return int(nums[0] == S) + int(nums[0] == -S)
+        s = sum(nums)
+        # find partition that sum(partition) == (target+sum)//2
 
-        last = nums[length-1]
-        first = self._findTargetSumWays(nums, length-1, S-last)
-        second = self._findTargetSumWays(nums, length-1, S+last)
-        return first + second
-        
+        def partitionSum(self, nums, sum):
+            # how to use dp to count times???
+            dp = [0 for i in range(sum+1)]
+            dp[0] = 1 # why ?????
+            for n in nums:
+                for i in 
+
 
 # test
 if __name__ == '__main__':
@@ -31,3 +30,4 @@ if __name__ == '__main__':
     print(Solution().findTargetSumWays([0, 0, 0, 0, 0, 0, 0, 0, 1], 1)) # 256
     print(Solution().findTargetSumWays([0], 0))
     print(Solution().findTargetSumWays([1, 2, 3, 4], 6))
+    print(Solution().findTargetSumWays([29,6,7,36,30,28,35,48,20,44,40,2,31,25,6,41,33,4,35,38], 35))
