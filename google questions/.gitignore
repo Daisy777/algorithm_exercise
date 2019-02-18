@@ -1,0 +1,4 @@
+# ignore the input and output files
+*-large-practice.in
+*-small-practice.in
+output
