@@ -1,3 +1,6 @@
+# python has build in module implemented for binary search
+# import bisect
+# bisect.bisect_left
 def _binarySearch(begin:'int', end:'int', arr:'list', ele) -> 'int':
     if begin > end:
         return -1

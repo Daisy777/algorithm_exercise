@@ -1,3 +1,5 @@
+# built-int list1.sort() sorted(list1) can be used 
+
 def partition(arr, i, j, p):
     left = i
     right = j
