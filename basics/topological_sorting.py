@@ -1,6 +1,6 @@
 # in directed acyclic graph
 # begin with nodes whose in-degree is 0
-# a special form of dfs?
+# a dfs vatiation?
 
 from collections import defaultdict
 
