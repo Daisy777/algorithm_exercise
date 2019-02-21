@@ -10,3 +10,4 @@ Most of the solutions are written in Python.
 |Binary Search| [Implementation](./basics/binary_search.py)|
 |Quick Sort| [Implementation](./basics/quick_sort.py)|
 |[Breath-first search](https://en.wikipedia.org/wiki/Breadth-first_search) |[Implementation](./basics/bfs.py)|
+|[Topological Sorting](https://en.wikipedia.org/wiki/Topological_sorting) | [Implementation](./basics/topological_sorting.py)|
