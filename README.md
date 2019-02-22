@@ -11,3 +11,5 @@ Most of the solutions are written in Python.
 |Quick Sort| [Implementation](./basics/quick_sort.py)|
 |[Breath-first search](https://en.wikipedia.org/wiki/Breadth-first_search) |[Implementation](./basics/bfs.py)|
 |[Topological Sorting](https://en.wikipedia.org/wiki/Topological_sorting) | [Implementation](./basics/topological_sorting.py)|
+|Knapsack problem / dynamic programming | [Implementation](./basics/dp.py)|
+|Minimum spanning tree (prim and kruskal)| [Implementation](./basics/minimum_spanning_tree.py)|
