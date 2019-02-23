@@ -3,6 +3,7 @@ Author: ZHAO Zinan
 Created: 23. February 2019
 
 760. Find Anagram Mappings
+#hash table
 ''' 
 class Solution:
     def anagramMappings(self, A: List[int], B: List[int]) -> List[int]:
