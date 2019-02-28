@@ -1,3 +1,11 @@
+'''
+Author: ZHAO Zinan
+Created: 28. February 2019
+
+186. 
+not a pythonic solution (a interpretation of solution in c)
+can be solved with one line of python 
+''' 
 class Solution:
     def reverseWords(self, str: List[str]) -> None:
         """
