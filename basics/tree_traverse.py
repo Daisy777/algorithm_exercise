@@ -18,7 +18,25 @@ def preorderTraversal(root: TreeNode):
     result = []
     _preorder(root, result)
     return result
+
+"""preorder iteration"""
+def preorderTraversal(root: TreeNode) -> List[int]:
+    if not root:
+        return []
     
+    stack = [root]
+    result = []
+    while(stack): 
+        nodenext = stack.pop()
+        result.append(nodenext.val) 
+        # s🌟 reminded of in stack, left should be on top of right
+        if nodenext.right:
+            stack.append(nodenext.right)
+        if nodenext.left:
+            stack.append(nodenext.left)
+        
+    return result
+
 
 """inorder recursion"""
 def _inorder(root:TreeNode, result:List[int]):
@@ -31,6 +49,19 @@ def inorderTraversal(root: TreeNode) -> List[int]:
         result = []
         _inorder(root, result)
         return result
+"""inorder iteration"""
+def inorderTraversal(root: TreeNode) -> List[int]:
+         # keep to left util we reach the leaf
+        result, stack = [], []
+        while(True):
+            while(root):
+                stack.append(root)
+                root = root.left
+            if not stack:
+                return result
+            node = stack.pop()
+            result.append(node.val)
+            root = node.right
 
 """postorder recursion"""
 def _postorder(root:TreeNode, result:List[int]):
@@ -43,4 +74,22 @@ def postorderTraversal(root: TreeNode) -> List[int]:
         result = []
         _postorder(root, result)
         return result
+
+"""postorder iteration"""
+def postorderTraversal(root: TreeNode) -> List[int]:
+    if not root:
+        return []
+    
+    stack = [root]
+    result = []
+    while(stack):
+        nodenext = stack.pop()
+        result.append(nodenext.val)
+        if nodenext.left:
+            stack.append(nodenext.left)
+        if nodenext.right:
+            stack.append(nodenext.right)
+    result.reverse()
+        
+    return result
     
