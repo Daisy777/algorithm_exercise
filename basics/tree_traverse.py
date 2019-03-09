@@ -92,4 +92,3 @@ def postorderTraversal(root: TreeNode) -> List[int]:
     result.reverse()
         
     return result
-    
