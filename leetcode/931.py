@@ -5,6 +5,7 @@ Created: 18. March 2019
 931. Minimum Falling Path Sum
 ''' 
 class Solution:
+    # can change A's value in place to avoid consuming extra space
     def minFallingPathSum(self, A) -> int:
         if not A or not A[0]:
             return 0
