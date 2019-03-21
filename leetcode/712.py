@@ -2,6 +2,7 @@
 Author: ZHAO Zinan
 Created: 21. March 2019
 
+712. Minimum ASCII Delete Sum for Two Strings
 kinds of like longest common string
 ''' 
 class Solution:
