@@ -1,8 +1,2 @@
-# python
-*.pyc
-
-# c++
+.vscode
 a.out
-
-# java
-*.class
