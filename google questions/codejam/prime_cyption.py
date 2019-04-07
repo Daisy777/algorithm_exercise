@@ -7,6 +7,7 @@ def gcd(a, b):
 def decryption(arr, n):
     message = [0] * (n+1)
     for i in range(n-1):
+        # reminded when adjcent == , gcd return ele, which should not be true
         if arr[i] != arr[i+1]:
             base = i+1
             message[base] = gcd(arr[i], arr[i+1])
