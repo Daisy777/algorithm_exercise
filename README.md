@@ -13,3 +13,4 @@ Most of the solutions are written in Python.
 |[Topological Sorting](https://en.wikipedia.org/wiki/Topological_sorting) | [Implementation](./basics/topological_sorting.py)|
 |Knapsack problem / dynamic programming | [Implementation](./basics/dp.py)|
 |Minimum spanning tree (prim and kruskal)| [Implementation](./basics/minimum_spanning_tree.py)|
+|[Tree Traversal](https://en.wikipedia.org/wiki/Tree_traversal) (recursion and iteration)| [Implementation](./basics/tree_traverse.py)|
