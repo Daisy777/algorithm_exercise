@@ -1,61 +1,40 @@
+zpython'''
+Author: ZHAO Zinan
+Created: 26. April 2019
+
+21. Merge Two Sorted Lists
+''' 
 # Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-    def __repr__(self):
-        if not self.next:
-            return str(self.val)
-
-        return str(self.val) + str(self.next)
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
 class Solution:
-    def mergeTwoLists(self, l1, l2):
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
-        if not l1:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        if l1 == None:
             return l2
-        if not l2:
+        if l2 == None:
             return l1
-
-        pointer1 = l1
-        pointer2 = l2
-        head = pointer1
-        if pointer1.val > pointer2.val:
-            temp = pointer1
-            pointer1 = pointer2
-            pointer2 = temp
-
-        while (pointer1.next and pointer2.next):
-            if (pointer2.val >= pointer1.val and pointer2.val < pointer1.next.val):
-                # insert pointer2 to pointer1.next
-                temppointer = pointer2
-                pointer2 = pointer2.next
-                temppointer.next = pointer1.next
-                pointer1.next = temppointer
-
-            elif (pointer2.val > pointer1.next.val):
-                pointer1 = pointer1.next
         
-        if not
-        return head
-
-
-if __name__ == '__main__':
-    a = ListNode(1)
-    b = ListNode(2)
-    a.next = b
-    c = ListNode(4)
-    b.next = c
-
-    d = ListNode(1)
-    e = ListNode(3)
-    f = ListNode(4)
-    d.next = e
-    e.next = f
-
-    print(Solution().mergeTwoLists(a, d))
+        if l1.val > l2.val:
+            l2, l1 = l1, l2
+            
+        newnode = l1
+        ptr = newnode
+        l1 = l1.next
+        while(l1 and l2):
+            if l1.val > l2.val:
+                l2, l1 = l1, l2
+            
+            ptr.next = l1
+            l1 = l1.next
+            ptr = ptr.next
+        
+        if l1:
+            ptr.next = l1
+        if l2:
+            ptr.next = l2
+        
+        return newnode
+        
