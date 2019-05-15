@@ -66,3 +66,5 @@ if __name__ == '__main__':
     print(timemap.get("love",20))
     print(timemap.get("love",25))
     # [null,null,null,"","high","high","low","low"]
+
+
